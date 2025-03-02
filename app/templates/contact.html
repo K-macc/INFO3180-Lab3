@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main %}
+<form method="post"> 
+    {{ form.csrf_token }} 
+
+    {{ form.name.label }} 
+    {{ form.name(size=20) }} 
+
+    {{ form.email.label }} 
+    {{ form.email(size=20) }} 
+
+    {{ form.subject.label }} 
+    {{ form.subject(size=20) }}
+    
+    {{ form.message.label }} 
+    {{ form.message(cols=40, rows=10) }}
+
+    <button type="submit">Send</button> 
+</form>
+{% endblock %}
