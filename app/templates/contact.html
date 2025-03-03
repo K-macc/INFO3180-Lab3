@@ -1,21 +1,54 @@
 {% extends "base.html" %}
 
 {% block main %}
-<form method="post"> 
-    {{ form.csrf_token }} 
 
-    {{ form.name.label }} 
-    {{ form.name(size=20) }} 
+    <div class="header">
+        <h1>Contact Form</h1>
+        <hr>
+    </div>
 
-    {{ form.email.label }} 
-    {{ form.email(size=20) }} 
+    <p>Fill in this form to contact the site owners.</p>
+    <br>
 
-    {{ form.subject.label }} 
-    {{ form.subject(size=20) }}
-    
-    {{ form.message.label }} 
-    {{ form.message(cols=40, rows=10) }}
+    <form method="post"> 
+        {{ form.csrf_token }} 
 
-    <button type="submit">Send</button> 
-</form>
+        <div class = "name">
+            <label> 
+                <strong>{{ form.name.label }}</strong> <span style = "color: red; font-weight: bold;"> (Required) </span>
+            </label>
+            <br><br>
+            <p> Please enter your full name </p>
+                {{ form.name(size=40) }} 
+        </div><br><br>
+
+        <div class = "email">
+            <label> 
+                <strong>{{ form.email.label }}</strong> <span style = "color: red; font-weight: bold;"> (Required) </span>
+            </label>
+            <br><br>
+            <p> Please enter your email address </p>
+                {{ form.email(size=40) }} 
+        </div><br><br>
+
+        <div class = "subject">
+            <label> 
+                <strong>{{ form.subject.label }}</strong> <span style = "color: red; font-weight: bold;"> (Required) </span>
+            </label>
+            <br><br>
+            <p> Please enter the subject for your message. </p>
+                {{ form.subject(size=40) }}
+        </div><br><br>
+        
+        <div class = "message">
+            <label> 
+                <strong>{{ form.message.label }}</strong> <span style = "color: red; font-weight: bold;"> (Required) </span>
+            </label>
+            <br><br> 
+            <p> Please enter the message you would like to send. </p>
+                {{ form.message(cols=60, rows=4) }}
+        </div><br>
+
+        <button type="submit" class= "btn btn-primary">Send</button> 
+    </form>
 {% endblock %}
