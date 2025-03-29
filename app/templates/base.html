@@ -21,7 +21,6 @@
     <header>
         {% include "header.html" %}
     </header>
-
     {% with messages = get_flashed_messages(with_categories=true) %} 
       {% if messages %} 
         <div class="flash-container"> 
@@ -30,12 +29,9 @@
               {{ message }}
             </div>
           {% endfor %} 
-          </div> 
+        </div> 
       {% endif %} 
     {% endwith %}
-
-
-
     <main>
         <div class="container">
             {% block main %}{% endblock %}
