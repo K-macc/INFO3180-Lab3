@@ -17,3 +17,6 @@ dnspython==2.7.9
 idna==3.10
 python-dotenv==1.0.1
 WTForms==3.2.1
+
+
+

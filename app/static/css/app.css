@@ -34,4 +34,14 @@ body {
 
 .success {
     background-color: #28a745; /* Green */
+    color: white;
+}
+
+.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.nav-link.active {
+    color: white;
 }

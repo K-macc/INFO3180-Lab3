@@ -18,7 +18,7 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Keshawn McGrath")
 
 
 @app.route('/contact', methods=['GET','POST'])
@@ -37,12 +37,16 @@ def contact():
                     )
         
         msg.body = f"{message}"
-        mail.send(msg)
         
-        flash('Message sent successfully!!', 'success')
+        try:
+            mail.send(msg)
+            flash('Message sent successfully!!', 'success')
+        except Exception as e:
+            flash(f"An error occurred: {str(e)}", 'error')
+            return render_template('contact.html',form = form)
+        
         return redirect(url_for('home'))
     return render_template('contact.html',form = form)
-
 ###
 # The functions below should be applicable to all Flask apps.
 ###
